@@ -53,9 +53,17 @@ const router = createBrowserRouter([
         }),
       },
       {
-        path: 'tasks',
+        path: 'installation-requests',
         lazy: async () => ({
-          Component: (await import('@/pages/tasks')).default,
+          Component: (await import('@/pages/installation-requests/index.tsx'))
+            .default,
+        }),
+      },
+      {
+        path: 'installation-requests/:id',
+        lazy: async () => ({
+          Component: (await import('@/pages/installation-requests/single.tsx'))
+            .default,
         }),
       },
       {
