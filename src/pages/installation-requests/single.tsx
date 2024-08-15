@@ -2,9 +2,13 @@ import { Layout } from '@/components/custom/layout'
 import { Search } from '@/components/search'
 import ThemeSwitch from '@/components/theme-switch'
 import { UserNav } from '@/components/user-nav'
-import React from 'react'
+import React, { useState } from 'react'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 const SingleRequest = () => {
+  const [value, setValue] = useState('')
+
   return (
     <Layout>
       {/* ===== Top Heading ===== */}
@@ -25,6 +29,15 @@ const SingleRequest = () => {
             </p>
           </div>
         </div>
+
+        <ReactQuill
+          theme='snow'
+          placeholder='Write your report here...'
+          value={value}
+          onChange={setValue}
+        />
+
+        <div dangerouslySetInnerHTML={{ __html: value }}></div>
       </Layout.Body>
     </Layout>
   )
